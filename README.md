@@ -1,7 +1,7 @@
 # hyperf-redis-lock
 English | [中文](./README-zh.md)
 
-an easy redis-based distributed-lock implementation for hyperf 2.*。
+an easy redis-based distributed-lock implementation for hyperf 3.1.*。
 This extension features distributed-lock includes block and unblock distributed-lock.
 
 ## Principle
@@ -16,7 +16,7 @@ version 1.* supports all the versions of redis.
 `redis-server --version`
 
 ## Install
-Run `composer require lysice/hyperf-redis-lock`
+Run `composer require StrKang/hyperf-redis-lock`
 
 ## Usage
 init the `redis` object

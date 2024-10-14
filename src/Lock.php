@@ -2,8 +2,9 @@
 
 namespace Lysice\HyperfRedisLock;
 
-use Hyperf\Utils\Str;
-use Hyperf\Utils\InteractsWithTime;
+use Closure;
+use Hyperf\Stringable\Str;
+use Hyperf\Support\Traits\InteractsWithTime;
 
 abstract class Lock implements LockContract
 {
@@ -13,54 +14,51 @@ abstract class Lock implements LockContract
      * The name of the lock
      * @var string
      */
-    protected $name;
+    protected string $name;
 
     /**
      * @var int
      */
-    protected $seconds;
+    protected int $seconds;
 
     /**
      * The scope identifier of this lock
      * @var string
      */
-    protected $owner;
+    protected mixed $owner;
 
     public function __construct($name, $seconds, $owner = null)
     {
-        if(is_null($owner)) {
-            $owner = Str::random();
-        }
         $this->name = $name;
         $this->seconds = $seconds;
-        $this->owner = $owner;
+        $this->owner = $owner ?: Str::random();
     }
 
     /**
      * Attempt to acquire the lock
      * @return bool
      */
-    abstract public function acquire();
+    abstract public function acquire(): bool;
 
     /**
      * Release the lock
-     * @return void
+     * @return bool
      */
-    abstract public function release();
+    abstract public function release(): bool;
 
     /**
      * Returns the owner value written into the driver for this lock
      * @return string
      */
-    abstract protected function getCurrentOwner();
+    abstract protected function getCurrentOwner(): string;
 
     /**
      * Attempt to acquire the lock
-     * @param null|\Closure $callback
+     * @param callable|null $callback
      * @param null|\Closure $finally
      * @return bool|mixed
      */
-    public function get($callback = null, $finally = null)
+    public function get(mixed $callback = null, mixed $finally = null): mixed
     {
         $result = $this->acquire();
         if($result && is_callable($callback)) {
@@ -83,7 +81,7 @@ abstract class Lock implements LockContract
      * @return bool|mixed
      * @throws LockTimeoutException
      */
-    public function block($seconds, $callback = null)
+    public function block($seconds, $callback = null): mixed
     {
         $starting = $this->currentTime();
         while(! $this->acquire()) {
@@ -109,7 +107,7 @@ abstract class Lock implements LockContract
      *
      * @return string
      */
-    public function owner()
+    public function owner(): string
     {
         return $this->owner;
     }
@@ -119,7 +117,7 @@ abstract class Lock implements LockContract
      *
      * @return bool
      */
-    protected function isOwnedByCurrentProcess()
+    protected function isOwnedByCurrentProcess(): bool
     {
         return $this->getCurrentOwner() === $this->owner;
     }

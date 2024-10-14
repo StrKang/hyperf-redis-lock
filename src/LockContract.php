@@ -8,31 +8,31 @@ interface LockContract {
      * @param callable|null $callback
      * @return mixed
      */
-    public function get($callback = null);
+    public function get(mixed $callback = null): mixed;
 
     /**
      * Attempt to acquire the lock for the given number of seconds
      * @param $seconds
-     * @param callable | null $callback
+     * @param callable|null $callback
      * @return mixed
      */
-    public function block($seconds, $callback = null);
+    public function block($seconds, mixed $callback = null): mixed;
 
     /**
      * Release the lock
      * @return mixed
      */
-    public function release();
+    public function release(): bool;
 
     /**
      * Returns the current owner of the lock
      * @return mixed
      */
-    public function owner();
+    public function owner(): mixed;
 
     /**
      * Releases this lock in disregard of ownership.
      * @return mixed
      */
-    public function forceRelease();
+    public function forceRelease(): mixed;
 }

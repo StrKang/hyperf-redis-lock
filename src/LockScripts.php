@@ -7,7 +7,7 @@ class LockScripts {
      * release lock
      * @return string
      */
-    public static function releaseLock()
+    public static function releaseLock(): string
     {
         return <<<'LUA'
 if redis.call("get",KEYS[1]) == ARGV[1] then

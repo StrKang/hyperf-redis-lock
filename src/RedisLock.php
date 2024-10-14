@@ -9,10 +9,11 @@ use Hyperf\Redis\RedisProxy;
  * @package App\Utils\RedisLock
  */
 class RedisLock extends Lock {
+
     /**
      * @var RedisProxy
      */
-    protected $redis;
+    protected RedisProxy $redis;
 
     public function __construct($redis, $name, $seconds, $owner = null)
     {
@@ -23,7 +24,7 @@ class RedisLock extends Lock {
     /**
      * @inheritDoc
      */
-    public function acquire()
+    public function acquire(): bool
     {
         $result = $this->redis->setnx($this->name, $this->owner);
 
@@ -37,7 +38,7 @@ class RedisLock extends Lock {
     /**
      * @inheritDoc
      */
-    public function release()
+    public function release(): bool
     {
         if ($this->isOwnedByCurrentProcess()) {
             $res = $this->redis->eval(LockScripts::releaseLock(), ['name' => $this->name, 'owner' => $this->owner],1);
@@ -49,7 +50,7 @@ class RedisLock extends Lock {
     /**
      * @inheritDoc
      */
-    protected function getCurrentOwner()
+    protected function getCurrentOwner(): string
     {
         return $this->redis->get($this->name);
     }
@@ -57,7 +58,7 @@ class RedisLock extends Lock {
     /**
      * @inheritDoc
      */
-    public function forceRelease()
+    public function forceRelease(): bool
     {
         $r = $this->redis->del($this->name);
         return $r == 1;

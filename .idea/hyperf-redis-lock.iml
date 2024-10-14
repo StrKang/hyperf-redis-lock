@@ -73,6 +73,19 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/var-dumper" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/theseer/tokenizer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-factory" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/deprecations" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/hyperf/conditionable" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/hyperf/contract" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/hyperf/collection" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/hyperf/tappable" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/hyperf/macroable" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/hyperf/stringable" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/hyperf/engine-contract" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/hyperf/coroutine" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/hyperf/support" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/hyperf/engine" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/hyperf/context" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
