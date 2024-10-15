@@ -19,7 +19,7 @@
 
 ## 安装 
 注意:请根据你的`Redis`版本
-执行 `composer require lysice/hyperf-redis-lock`
+执行 `composer require StrKang/hyperf-redis-lock`
 
 ## 使用
 首先需要在程序内初始化你需要的`redis`

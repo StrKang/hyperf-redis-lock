@@ -4,7 +4,7 @@ namespace Lysice\HyperfRedisLock;
 
 interface LockContract {
     /**
-     * Attempt to acquire the lock111
+     * Attempt to acquire the lock
      * @param callable|null $callback
      * @return mixed
      */
