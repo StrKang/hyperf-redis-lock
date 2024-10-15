@@ -1,5 +1,5 @@
 {
-    "name": "StrKang/hyperf-redis-lock",
+    "name": "str-kang/hyperf-redis-lock",
     "type": "library",
     "license": "MIT",
     "keywords": [
