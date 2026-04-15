@@ -1,6 +1,6 @@
 <?php
 
-namespace Lysice\HyperfRedisLock;
+namespace Kang\HyperfRedisLock;
 
 use Hyperf\Redis\RedisProxy;
 
