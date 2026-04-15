@@ -9,7 +9,7 @@
     "description": "",
     "autoload": {
         "psr-4": {
-            "Lysice\\HyperfRedisLock\\": "src/"
+            "Kang\\HyperfRedisLock\\": "src/"
         }
     },
     "autoload-dev": {
@@ -45,7 +45,7 @@
     },
     "extra": {
         "hyperf": {
-            "config": "Lysice\\HyperfRedisLock\\ConfigProvider"
+            "config": "Kang\\HyperfRedisLock\\ConfigProvider"
         }
     }
 }
