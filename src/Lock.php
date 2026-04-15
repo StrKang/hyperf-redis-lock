@@ -1,6 +1,6 @@
 <?php
 
-namespace Lysice\HyperfRedisLock;
+namespace Kang\HyperfRedisLock;
 
 use Closure;
 use Hyperf\Stringable\Str;
